@@ -14,7 +14,6 @@ namespace FFxSectionsBeautify
 
         private string CleanSpaces(string input)
         {
-            // Замена Regex на простой метод
             if (string.IsNullOrEmpty(input)) return input;
 
             StringBuilder result = new StringBuilder();
@@ -113,7 +112,6 @@ namespace FFxSectionsBeautify
             {
                 StringBuilder sb = new StringBuilder();
 
-                // Комментарии
                 if (Comments != null)
                 {
                     foreach (string comment in Comments)
@@ -126,14 +124,12 @@ namespace FFxSectionsBeautify
                     }
                 }
 
-                // Заголовок секции
                 if (!string.IsNullOrEmpty(FullSectionFirstLine))
                 {
                     sb.Append(new string(' ', Padding));
                     sb.AppendLine(FullSectionFirstLine);
                 }
 
-                // Содержимое
                 if (Lines != null)
                 {
                     foreach (string line in Lines)
@@ -182,7 +178,6 @@ namespace FFxSectionsBeautify
 
                 if (line.Length == 0)
                 {
-                    // Пустая строка внутри секции
                     if (currentSection != null && !lastWasEmpty)
                     {
                         currentSection.Lines.Add("");
@@ -193,7 +188,6 @@ namespace FFxSectionsBeautify
                 {
                     lastWasEmpty = false;
 
-                    // Проверка на секцию
                     if (line.StartsWith("[") && line.IndexOf(']') > 0)
                     {
                         currentSection = new Section();
@@ -203,7 +197,6 @@ namespace FFxSectionsBeautify
                     }
                     else if (currentSection != null)
                     {
-                        // Обычная строка внутри секции
                         currentSection.Lines.Add(line);
                     }
                 }
@@ -253,7 +246,6 @@ namespace FFxSectionsBeautify
 
                 List<string> trailingComments = new List<string>();
 
-                // Ищем комментарии в конце предыдущей секции
                 for (int j = prevSection.Lines.Count - 1; j >= 0; j--)
                 {
                     string line = prevSection.Lines[j];
@@ -269,7 +261,6 @@ namespace FFxSectionsBeautify
                     }
                 }
 
-                // Перемещаем комментарии
                 if (trailingComments.Count > 0)
                 {
                     RemoveTrailingComments(prevSection, trailingComments.Count);
