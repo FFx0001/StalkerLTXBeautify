@@ -39,8 +39,9 @@
             this.p_buttons = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.nupd_offset = new System.Windows.Forms.NumericUpDown();
             this.button1 = new System.Windows.Forms.Button();
+            this.nupd_offset = new System.Windows.Forms.NumericUpDown();
+            this.button2 = new System.Windows.Forms.Button();
             this.p_main.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -166,6 +167,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.32745F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.67255F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 248F));
+            this.tableLayoutPanel3.Controls.Add(this.button2, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.button1, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.nupd_offset, 0, 0);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(2, 13);
@@ -174,6 +176,17 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.Size = new System.Drawing.Size(800, 33);
             this.tableLayoutPanel3.TabIndex = 3;
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button1.Location = new System.Drawing.Point(553, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(243, 25);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Форматировать";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
             // 
             // nupd_offset
             // 
@@ -188,16 +201,16 @@
             0,
             0});
             // 
-            // button1
+            // button2
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.Location = new System.Drawing.Point(553, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(243, 25);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Форматировать";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_2);
+            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button2.Location = new System.Drawing.Point(291, 4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(255, 25);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Извлечение секций в lua таблицу";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // main_form
             // 
@@ -236,6 +249,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown nupd_offset;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
 

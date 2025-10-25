@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace FFxSectionsBeautify
@@ -331,6 +332,38 @@ namespace FFxSectionsBeautify
             {
                 processing();
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string content = rtb_input.Text.ToString();
+            if (content != string.Empty)
+            {
+                rtb_output.Clear();
+            }
+
+            StringBuilder result = new StringBuilder();
+            result.AppendLine("local sections = {");
+
+            foreach (string line in rtb_input.Lines)
+            {
+                if (string.IsNullOrEmpty(line)) continue;
+                string trimmed = line.Trim();
+                if (string.IsNullOrEmpty(trimmed) || trimmed.Contains("_hud")) continue;
+
+                // Ищем только первое вхождение
+                Match match = Regex.Match(trimmed, @"^\[([^\]]+)\]");
+
+                if (match.Success)
+                {
+
+                    result.AppendLine(new string(' ', 6) + "\"" + match.Groups[1].Value.Trim() + "\"" + ",");
+                }
+            }
+            
+            result.AppendLine("}");
+            rtb_output.Text = result.ToString();
+
         }
     }
 }
